@@ -269,7 +269,6 @@
                 </div>
                 <div class="panel-body">
                     <form action="<?php echo BASE_URL; ?>lineup/editar/" method="POST" class="form-inline" id="adicionar-canal">
-                        <!--<div class="form-group">-->
                             <input type="hidden" name="novocanal">
                             <div class="form-group">
                                 <label for="display" class="sr-only">Display do canal</label>
@@ -289,7 +288,6 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                             </div>
-                        <!--</div>-->
                     </form>
                 </div>
             </div>
