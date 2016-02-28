@@ -1,0 +1,30 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^.*/index.php
+RewriteRule ^(.*)$ / [R=301,L]
+RewriteRule ^([a-z_-]+)/$ index.php?page=$1 [NC,L]
+RewriteRule ^([a-z_-]+)$ http://%{HTTP_HOST}/tecnet/$1/ [L,R=301]
+
+RewriteRule ^(lineup)\/([0-9]+)$ index.php?page=$1&canal=$2 [NC,L]
+RewriteRule ^(lineup)\/([0-9]+)/$ http://%{HTTP_HOST}/tecnet/$1/$2/ [L,R=301]
+
+RewriteRule ^(solicitacoes)\/(acessorios|miscelanea|equipamentos)/$ index.php?page=$1&tiposolicitacao=$2 [NC,L]
+RewriteRule ^(solicitacoes)\/(acessorios|miscelanea|equipamentos)$ http://%{HTTP_HOST}/tecnet/$1/$2/ [L,R=301]
+
+RewriteRule ^(lineup)\/(pesquisa)/$ index.php?page=$1&search=$2 [NC,L]
+RewriteRule ^(lineup)\/(pesquisa)$ http://%{HTTP_HOST}/tecnet/$1/$2/ [L,R=301]
+
+RewriteRule ^(lineup)\/(pesquisa)\/([a-z0-9_-]+)$ http://%{HTTP_HOST}/tecnet/$1/$2/ [L,R=301]
+RewriteRule ^(lineup)\/(pesquisa)\/([a-z0-9_-]+)/$ http://%{HTTP_HOST}/tecnet/$1/$2/ [L,R=301]
+
+RewriteRule ^(lineup|frequencias)\/(editar)/$ index.php?page=$1&editar=$2 [NC,L]
+RewriteRule ^(lineup|frequencias)\/(editar)$ http://%{HTTP_HOST}/tecnet/$1/$2/ [L,R=301]
+
+RewriteRule ^(lineup)\/(editar)\/(canais|pacotes|lineup)/$ index.php?page=$1&editar=$2&oque=$3 [NC,L]
+RewriteRule ^(lineup)\/(editar)\/(canais|pacotes|lineup)$ http://%{HTTP_HOST}/tecnet/$1/$2/$3/ [L,R=301]
+
+
+RewriteRule ^(lineup|conta|frequencias|solicitacoes|tecnicos)\/([a-z0-9_-]+)$ http://%{HTTP_HOST}/tecnet/$1/ [L,R=301]
+RewriteRule ^(lineup|conta|frequencias|solicitacoes|tecnicos)\/([a-z0-9_-]+)/$ http://%{HTTP_HOST}/tecnet/$1/ [L,R=301]
+##&termopesquisa=$3
